@@ -1,0 +1,35 @@
+---
+import Aside from '../components/Aside.astro'
+import Main  from '../components/Main.astro'
+import Player from '../components/Player.astro'
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Spotify</title>
+	</head>
+	<body class="grid grid-cols-[200px_1fr_1fr] grid-rows-[50px_1fr_auto]">
+		<Aside className="Aside"/>
+		<Main className="Main"/>
+		<Player className="Player"/>
+	</body>
+	<style>
+		html{
+			height: 100vh;
+		}
+		body{
+			min-height: 100%;
+			min-width: 100%;
+			grid-template-areas: 
+			"Aside Main Main"
+			"Aside Main Main"
+			"Player Player Player";
+		}
+	</style>
+</html>
+
+
+
