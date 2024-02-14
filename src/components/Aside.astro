@@ -4,8 +4,10 @@ import SearchIcon from '../Icons/Search.astro'
 import LibraryIcon from '../Icons/Library.astro'
 import AddIcon from '../Icons/Add.astro'
 import ArrowIcon from '../Icons/Arrow.astro'
+import {playlists} from '../lib/data'
+import MenuIcon from '../Icons/Menu.astro'
 ---
-<aside class='[grid-area:Aside] flex flex-col gap-2 text-[#b3b3b3] font-bold h-full'>
+<aside class='[grid-area:Aside] flex flex-col gap-2 text-[#b3b3b3] font-bold h-full overflow-hidden'>
     <header class="h-[115px] rounded-md bg-[#121212]">
         <ul>
             <li>
@@ -16,15 +18,15 @@ import ArrowIcon from '../Icons/Arrow.astro'
             </li>
             <li>
                 <a class="flex gap-5 m-5 hover:cursor-pointer">
-                    <SearchIcon/> 
+                    <SearchIcon size="size-6"/> 
                     <span>Search</span>
                 </a>
             </li>
         </ul>
     </header>
-    <main class=" rounded-md bg-[#121212] h-full">
+    <main class=" rounded-md bg-[#121212] max-h-full">
         <header class="flex justify-between">
-            <a class="flex gap-5 m-5 ">
+            <a class="flex gap-3 m-5 ">
                 <LibraryIcon/>
                 <span>Your Library</span>
             </a>
@@ -37,6 +39,37 @@ import ArrowIcon from '../Icons/Arrow.astro'
                 </button>
             </div>
         </header>
+        <main class="ml-5 max-h-full">
+
+            <div>
+                <button class="bg-[#1e1e1e] rounded-2xl text-white font-normal  px-4 py-2 text-sm">Playlists</button>
+                <!-- Todo: Missing Artists button-->
+            </div>
+
+            <div class="flex flex-row ml-2 mt-5 justify-between text-sm mr-5">
+                <button> 
+                    <SearchIcon size="size-[22px]"/>
+                </button>
+                <div class="flex flex-row gap-2">
+                    <span>Recently Added</span>
+                    <MenuIcon/>
+                </div>
+            </div>
+
+            <ul class="mt-5 flex flex-col max-h-[250px] overflow-y-auto">
+                {playlists.map((el)=>(
+                    <div class="min-h-[70px] hover:bg-[#1a1a1a] flex items-center rounded-md">
+                        <li class="flex text-sm items-center gap-4 ml-2">
+                            <img src={el.cover} class="size-[50px] rounded-sm"/>
+                            <div>
+                                <h2 class="text-white">{el.title}</h2>    
+                                <span class="text-xs font-medium">{el.artists}</span>
+                            </div>
+                        </li>    
+                    </div>
+                ))}
+            </ul>
+        </main>
     </main>
 </aside>
 
