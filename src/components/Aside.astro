@@ -1,8 +1,42 @@
 ---
-const {className}=Astro.props
+import HomeIcon from '../Icons/Home.astro'
+import SearchIcon from '../Icons/Search.astro'
+import LibraryIcon from '../Icons/Library.astro'
+import AddIcon from '../Icons/Add.astro'
+import ArrowIcon from '../Icons/Arrow.astro'
 ---
-<aside class=`[grid-area:${className}]`>
-    <header>
-        Aside 
+<aside class='[grid-area:Aside] flex flex-col gap-2 text-[#b3b3b3] font-bold h-full'>
+    <header class="h-[115px] rounded-md bg-[#121212]">
+        <ul>
+            <li>
+                <a class="flex gap-5 m-5 hover:cursor-pointer text-white">
+                    <HomeIcon/> 
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a class="flex gap-5 m-5 hover:cursor-pointer">
+                    <SearchIcon/> 
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
     </header>
+    <main class=" rounded-md bg-[#121212] h-full">
+        <header class="flex justify-between">
+            <a class="flex gap-5 m-5 ">
+                <LibraryIcon/>
+                <span>Your Library</span>
+            </a>
+            <div class="flex gap-5 m-5">
+                <button>
+                    <AddIcon/>
+                </button>
+                <button>
+                    <ArrowIcon/>
+                </button>
+            </div>
+        </header>
+    </main>
 </aside>
+
