@@ -1,8 +1,36 @@
-
-<main class='[grid-area:Main] bg-[#1e1e1e]  rounded-md ml-2 h-full '>
+---
+import CardMain1 from './CardMain1.astro'
+import {playlists} from '../lib/data'
+import CardMain2 from './CardMain2.astro'
+---
+<main class='[grid-area:Main] bg-[#1e1e1e]  rounded-md ml-2 h-full overflow-hidden'>
     <header class="m-4">
-        <span class="text-white text-xl font-extrabold">
-            Recently played
-        </span>
+       <div>
+            <span class="text-white text-3xl font-extrabold">
+                Recently played
+            </span>
+       </div>
+       <div class="flex gap-3">
+            <CardMain1 cover={playlists[0].cover} title={playlists[0].title} />
+            <CardMain1 cover={playlists[4].cover} title={playlists[4].title} />
+            <CardMain1 cover={playlists[5].cover} title={playlists[5].title} />
+            <CardMain1 cover={playlists[2].cover} title={playlists[2].title} />
+       </div>
     </header>
+    <main class="mx-4 my-10">
+        <div >
+            <span class="text-white text-2xl font-extrabold">Your playlists</span>
+            <div class="mt-4">
+                <ul class="flex gap-4 max-w-[900px] flex-wrap overflow-y-scroll max-h-[280px]">
+                    {playlists.map((el)=>(
+                        <li>
+                            <a>
+                                <CardMain2 cover={el.cover} title={el.title} artists={el.artists}/>
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </div>
+    </main>
 </main>

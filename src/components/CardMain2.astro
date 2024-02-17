@@ -1,0 +1,11 @@
+---
+const {cover,title,artists}=Astro.props
+---
+<div class="h-[280px] w-[200px] rounded-md bg-[#2a2a2a] flex flex-col items-center relative hover:bg-[#504d4d] hover:cursor-pointer">
+    <img class="size-[170px] rounded-md absolute top-3" src={cover}/>
+    <div class="absolute bottom-6 ml-10">
+        <span class="text-white font-bold">{title}</span>
+        <span class="text-white font-light">{artists}</span>
+    </div>
+</div>
+

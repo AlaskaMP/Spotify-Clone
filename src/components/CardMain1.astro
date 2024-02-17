@@ -1,0 +1,9 @@
+---
+const {cover,title}=Astro.props
+---
+<div class="h-[50px] w-[215px] mt-2  bg-[#2a2a2a] rounded-md hover:bg-[#504d4d]">
+    <a class="flex items-center gap-2 hover:cursor-pointer">
+        <img class="size-[50px]" src={cover}/>
+        <span class="text-white font-extrabold">{title}</span>
+    </a>
+</div>
